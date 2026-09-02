@@ -34,6 +34,8 @@ function getDayType(day) {
     }
 }
 
+console.log(getDayType("Weddingday"));
+
 
 // Question 3
 function validateUsername(name) {
@@ -50,6 +52,8 @@ function validateUsername(name) {
         return "Available"
     }
 }
+
+console.log(validateUsername("abcd") );
 
 
 // Question 4
@@ -69,3 +73,33 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0) {
 
     return fare;
 }
+
+console.log(getCngFare(5, true, 10));
+
+
+// Question 5
+const getChaseVerdict=(target, scored, ballsLeft)=> {
+    let runsNeeded = target - scored;
+
+    if (runsNeeded <= 0) {
+        return "Won";
+    } else if (ballsLeft <= 0) {
+        return "Lost";
+    } else {
+        let requiredRate = (runsNeeded / ballsLeft) * 6
+        let verdict;
+
+        if (requiredRate <= 6) {
+            verdict= "Comfortable";
+        } else if (requiredRate <= 12) {
+            verdict= "Tough";
+        } else if (requiredRate > 12) {
+            verdict= "Almost Impossible";
+        }
+
+        return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}`;
+    }
+
+}
+
+console.log(getChaseVerdict(100, 90, 12));
